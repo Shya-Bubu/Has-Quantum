@@ -1,0 +1,17 @@
+Youtube = 
+
+vid_01 = https://youtu.be/eVgvWYz7feM?list=PLLstkJYnU01o 'Video 01 - LN 02'
+vid_02 = https://youtu.be/k1QUahIlY3U?list=PLLstkJYnU01o 'Video 02 - LN 03'
+vid_03 =
+vid_04 = 
+vid_05 = 
+vid_06 = 
+vid_07 = 
+vid_08 = 
+vid_09 = 
+vid_10 = 
+
+Quiz 
+vid_01 =
+vid_02 = https://notebooklm.google.com/notebook/f310388d-afdd-4d29-b373-b94d1d79118c/artifact/c8ee9944-0832-422f-8682-7c2a6e1c534d?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_
+vid_03 = https://notebooklm.google.com/notebook/137a289a-6638-4195-b593-59c3d3429b1f/artifact/7097212d-6680-45cd-a1c1-3b487d5827cf?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_
