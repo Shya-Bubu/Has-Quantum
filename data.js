@@ -6,7 +6,7 @@ const LECTURES = [
         status: "available",
         videoId: "eVgvWYz7feM",
         videoUrl: "https://youtu.be/eVgvWYz7feM?list=PLLstkJYnU01o",
-        quizUrl: null
+        quizUrl: "https://notebooklm.google.com/notebook/c0c68814-f14e-4aed-9e3b-1ffbe8bab382/artifact/eb922fbb-1cac-4e1e-b7f0-5e43a5a7023d"
     },
     {
         id: 2,
@@ -24,7 +24,7 @@ const LECTURES = [
         status: "upcoming",
         videoId: null,
         videoUrl: null,
-        quizUrl: null
+        quizUrl: "https://notebooklm.google.com/notebook/137a289a-6638-4195-b593-59c3d3429b1f/artifact/7097212d-6680-45cd-a1c1-3b487d5827cf"
     },
     {
         id: 4,

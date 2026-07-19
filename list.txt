@@ -12,6 +12,6 @@ vid_09 =
 vid_10 = 
 
 Quiz 
-vid_01 =
+vid_01 = https://notebooklm.google.com/notebook/c0c68814-f14e-4aed-9e3b-1ffbe8bab382/artifact/eb922fbb-1cac-4e1e-b7f0-5e43a5a7023d?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_
 vid_02 = https://notebooklm.google.com/notebook/f310388d-afdd-4d29-b373-b94d1d79118c/artifact/c8ee9944-0832-422f-8682-7c2a6e1c534d?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_
 vid_03 = https://notebooklm.google.com/notebook/137a289a-6638-4195-b593-59c3d3429b1f/artifact/7097212d-6680-45cd-a1c1-3b487d5827cf?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_1&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_1_
