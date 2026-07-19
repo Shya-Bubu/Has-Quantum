@@ -2,7 +2,7 @@ Youtube =
 
 vid_01 = https://youtu.be/eVgvWYz7feM?list=PLLstkJYnU01o 'Video 01 - LN 02'
 vid_02 = https://youtu.be/k1QUahIlY3U?list=PLLstkJYnU01o 'Video 02 - LN 03'
-vid_03 =
+vid_03 = https://youtu.be/FlXpi6B0xD8 'Video 03 - LN 04'
 vid_04 = 
 vid_05 = 
 vid_06 = 
