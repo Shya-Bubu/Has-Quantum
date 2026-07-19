@@ -1,8 +1,8 @@
 const LECTURES = [
     {
         id: 1,
-        title: "LN 02",
-        subtitle: "Lecture 01",
+        title: "Lecture 01",
+        subtitle: "LN 02",
         status: "available",
         videoId: "eVgvWYz7feM",
         videoUrl: "https://youtu.be/eVgvWYz7feM?list=PLLstkJYnU01o",
@@ -10,8 +10,8 @@ const LECTURES = [
     },
     {
         id: 2,
-        title: "LN 03",
-        subtitle: "Lecture 02",
+        title: "Lecture 02",
+        subtitle: "LN 03",
         status: "available",
         videoId: "k1QUahIlY3U",
         videoUrl: "https://youtu.be/k1QUahIlY3U?list=PLLstkJYnU01o",

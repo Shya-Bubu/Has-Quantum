@@ -218,12 +218,129 @@ a {
     font-weight: 600;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .lecture-count {
     font-size: 0.85rem;
     color: var(--text-tertiary);
     background: var(--badge-bg);
     padding: 4px 12px;
     border-radius: 100px;
+}
+
+/* === View Toggle === */
+.view-toggle {
+    display: flex;
+    background: var(--badge-bg);
+    border-radius: 8px;
+    padding: 3px;
+}
+
+.view-btn {
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.view-btn:hover {
+    color: var(--text-primary);
+}
+
+.view-btn.active {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* === Lecture Grid (Cards) === */
+.lecture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.lecture-grid .lecture-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.lecture-grid .lecture-item:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.lecture-grid .lecture-item.upcoming {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.lecture-grid .lecture-item.upcoming:hover {
+    border-color: var(--border-light);
+    box-shadow: none;
+    transform: none;
+}
+
+.lecture-grid .lecture-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.lecture-grid .lecture-item.upcoming .lecture-number {
+    background: var(--badge-bg);
+    color: var(--text-tertiary);
+}
+
+.lecture-grid .lecture-info {
+    width: 100%;
+}
+
+.lecture-grid .lecture-info h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.lecture-grid .lecture-info p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.lecture-grid .lecture-status {
+    width: 100%;
+}
+
+.lecture-grid .lecture-arrow {
+    display: none;
 }
 
 /* === Lecture List === */
@@ -237,7 +354,7 @@ a {
     overflow: hidden;
 }
 
-.lecture-item {
+.lecture-list .lecture-item {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -247,24 +364,24 @@ a {
     position: relative;
 }
 
-.lecture-item:hover {
+.lecture-list .lecture-item:hover {
     background: var(--bg-surface-hover);
 }
 
-.lecture-item + .lecture-item {
+.lecture-list .lecture-item + .lecture-item {
     border-top: 1px solid var(--border-light);
 }
 
-.lecture-item.upcoming {
+.lecture-list .lecture-item.upcoming {
     opacity: 0.5;
     cursor: default;
 }
 
-.lecture-item.upcoming:hover {
+.lecture-list .lecture-item.upcoming:hover {
     background: transparent;
 }
 
-.lecture-number {
+.lecture-list .lecture-number {
     width: 40px;
     height: 40px;
     border-radius: 10px;
@@ -278,31 +395,43 @@ a {
     flex-shrink: 0;
 }
 
-.lecture-item.upcoming .lecture-number {
+.lecture-list .lecture-item.upcoming .lecture-number {
     background: var(--badge-bg);
     color: var(--text-tertiary);
 }
 
-.lecture-info {
+.lecture-list .lecture-info {
     flex: 1;
     min-width: 0;
 }
 
-.lecture-info h3 {
+.lecture-list .lecture-info h3 {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 2px;
 }
 
-.lecture-info p {
+.lecture-list .lecture-info p {
     font-size: 0.85rem;
     color: var(--text-secondary);
 }
 
-.lecture-status {
+.lecture-list .lecture-status {
     flex-shrink: 0;
 }
 
+.lecture-list .lecture-arrow {
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+}
+
+.lecture-list .lecture-item:hover .lecture-arrow {
+    transform: translateX(4px);
+    color: var(--accent);
+}
+
+/* === Status Badges === */
 .status-available {
     display: inline-flex;
     align-items: center;
@@ -333,17 +462,6 @@ a {
     border-radius: 100px;
     font-size: 0.8rem;
     font-weight: 500;
-}
-
-.lecture-arrow {
-    color: var(--text-tertiary);
-    flex-shrink: 0;
-    transition: transform 0.15s ease;
-}
-
-.lecture-item:hover .lecture-arrow {
-    transform: translateX(4px);
-    color: var(--accent);
 }
 
 /* === Lecture Page === */
@@ -425,17 +543,18 @@ a {
     border: none;
 }
 
-.video-actions {
+/* Centered YouTube button */
+.video-actions-center {
     display: flex;
-    gap: 12px;
-    margin-top: 16px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .btn-youtube {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 24px;
+    padding: 12px 28px;
     background: var(--red);
     color: white;
     border-radius: var(--radius-sm);
@@ -454,87 +573,101 @@ a {
     flex-shrink: 0;
 }
 
-/* === Quiz Section === */
-.quiz-section {
-    margin-top: 40px;
-}
-
-.quiz-label {
+/* === Quiz Card === */
+.quiz-card {
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    padding: 24px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
+    justify-content: space-between;
+    gap: 20px;
+    transition: all 0.2s ease;
 }
 
-.quiz-label .label-badge {
+.quiz-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.quiz-card-disabled {
+    opacity: 0.6;
+}
+
+.quiz-card-disabled:hover {
+    border-color: var(--border-light);
+    box-shadow: none;
+}
+
+.quiz-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.quiz-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.quiz-card-info h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.quiz-card-info p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.quiz-required-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 14px;
-    background: var(--accent-soft);
-    color: var(--accent);
+    padding: 3px 10px;
+    background: rgba(255, 59, 48, 0.08);
+    color: var(--red);
     border-radius: 100px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.3px;
+    margin-bottom: 6px;
 }
 
-.quiz-label .label-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
+.required-dot {
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--red);
 }
 
-.quiz-label .label-required {
-    font-size: 0.8rem;
-    color: var(--red);
-    font-weight: 500;
-}
-
-.quiz-label h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.quiz-embed {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    background: var(--bg-surface);
-}
-
-.quiz-embed iframe {
-    width: 100%;
-    height: 600px;
-    border: none;
-    display: block;
-}
-
-.quiz-actions {
-    padding: 16px 20px;
-    background: var(--bg-surface);
-    border-top: 1px solid var(--border-light);
-    display: flex;
-    justify-content: center;
-}
-
-.btn-open-quiz {
+.btn-open-quiz-full {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 28px;
+    padding: 12px 24px;
     background: var(--accent);
     color: white;
     border-radius: var(--radius-sm);
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.2s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
-.btn-open-quiz:hover {
+.btn-open-quiz-full:hover {
     background: var(--accent-hover);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
@@ -608,23 +741,19 @@ footer {
         padding: 0 16px;
     }
 
-    .lecture-item {
-        padding: 14px 16px;
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
         gap: 12px;
     }
 
-    .lecture-number {
-        width: 36px;
-        height: 36px;
-        font-size: 0.85rem;
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
     }
 
-    .lecture-info h3 {
-        font-size: 0.95rem;
-    }
-
-    .lecture-arrow {
-        display: none;
+    .lecture-grid {
+        grid-template-columns: 1fr;
     }
 
     .lecture-container {
@@ -635,28 +764,25 @@ footer {
         font-size: 1.5rem;
     }
 
-    .video-actions {
-        flex-direction: column;
-    }
-
     .btn-youtube {
+        width: 100%;
         justify-content: center;
     }
 
-    .quiz-embed iframe {
-        height: 400px;
+    .quiz-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-open-quiz-full {
+        width: 100%;
+        justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2.2rem;
-    }
-
-    .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
     }
 
     .status-available,

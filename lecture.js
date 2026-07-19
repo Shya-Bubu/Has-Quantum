@@ -37,7 +37,7 @@ function renderLecture() {
     // Update page title
     document.title = `${lecture.title} - Quantum Chemistry`;
 
-    // Render header
+    // Render header - title is Lecture XX, subtitle is LN XX
     const header = document.getElementById('lecture-header');
     const num = String(lecture.id).padStart(2, '0');
     header.innerHTML = `
@@ -58,7 +58,7 @@ function renderLecture() {
                     allowfullscreen>
                 </iframe>
             </div>
-            <div class="video-actions">
+            <div class="video-actions-center">
                 <a href="${lecture.videoUrl}" target="_blank" class="btn-youtube">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     Watch on YouTube
@@ -75,38 +75,42 @@ function renderLecture() {
         `;
     }
 
-    // Render quiz
+    // Render quiz - no iframe, just a button
     const quizSection = document.getElementById('quiz-section');
     if (lecture.quizUrl) {
         quizSection.innerHTML = `
-            <div class="quiz-label">
-                <span class="label-badge">Required</span>
-                <span class="label-required">* Mandatory</span>
-            </div>
-            <h3 style="font-size:1.25rem; font-weight:600; margin-bottom:16px;">Quiz</h3>
-            <div class="quiz-embed">
-                <iframe 
-                    src="${lecture.quizUrl}" 
-                    title="Quiz - ${lecture.title}">
-                </iframe>
-                <div class="quiz-actions">
-                    <a href="${lecture.quizUrl}" target="_blank" class="btn-open-quiz">
-                        Open Full Quiz
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    </a>
+            <div class="quiz-card">
+                <div class="quiz-card-header">
+                    <div class="quiz-card-icon">📝</div>
+                    <div class="quiz-card-info">
+                        <div class="quiz-required-badge">
+                            <span class="required-dot"></span>
+                            Required
+                        </div>
+                        <h3>Take the Quiz</h3>
+                        <p>Complete this quiz to test your understanding of ${lecture.title}</p>
+                    </div>
                 </div>
+                <a href="${lecture.quizUrl}" target="_blank" class="btn-open-quiz-full">
+                    Open Quiz
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
             </div>
         `;
     } else {
         quizSection.innerHTML = `
-            <div class="quiz-label">
-                <span class="label-badge">Required</span>
-                <span class="label-required">* Mandatory</span>
-            </div>
-            <div class="no-quiz">
-                <div class="no-quiz-icon">📝</div>
-                <h3>Quiz Coming Soon</h3>
-                <p>The quiz for this lecture will be available soon.</p>
+            <div class="quiz-card quiz-card-disabled">
+                <div class="quiz-card-header">
+                    <div class="quiz-card-icon">📝</div>
+                    <div class="quiz-card-info">
+                        <div class="quiz-required-badge">
+                            <span class="required-dot"></span>
+                            Required
+                        </div>
+                        <h3>Quiz Coming Soon</h3>
+                        <p>The quiz for this lecture will be available soon.</p>
+                    </div>
+                </div>
             </div>
         `;
     }

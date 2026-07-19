@@ -12,12 +12,46 @@ themeToggle.addEventListener('click', () => {
     localStorage.setItem('theme', next);
 });
 
+// View toggle
+const viewToggle = document.getElementById('view-toggle');
+const lectureList = document.getElementById('lecture-list');
+let currentView = window.innerWidth <= 768 ? 'list' : 'grid';
+
+function setView(view) {
+    currentView = view;
+    lectureList.className = view === 'grid' ? 'lecture-grid' : 'lecture-list';
+    viewToggle.querySelectorAll('.view-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.view === view);
+    });
+    localStorage.setItem('view', view);
+}
+
+// Check for saved view preference
+const savedView = localStorage.getItem('view');
+if (savedView) {
+    currentView = savedView;
+} else {
+    currentView = window.innerWidth <= 768 ? 'list' : 'grid';
+}
+setView(currentView);
+
+viewToggle.addEventListener('click', (e) => {
+    const btn = e.target.closest('.view-btn');
+    if (btn) setView(btn.dataset.view);
+});
+
+// Responsive: switch to list on mobile
+window.addEventListener('resize', () => {
+    if (!localStorage.getItem('view')) {
+        setView(window.innerWidth <= 768 ? 'list' : 'grid');
+    }
+});
+
 // Render lecture list
 function renderLectures() {
-    const list = document.getElementById('lecture-list');
-    if (!list) return;
+    if (!lectureList) return;
 
-    list.innerHTML = LECTURES.map(lecture => {
+    lectureList.innerHTML = LECTURES.map(lecture => {
         const isAvailable = lecture.status === 'available';
         const num = String(lecture.id).padStart(2, '0');
 
