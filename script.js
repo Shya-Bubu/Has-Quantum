@@ -51,7 +51,14 @@ window.addEventListener('resize', () => {
 function renderLectures() {
     if (!lectureList) return;
 
-    lectureList.innerHTML = LECTURES.map(lecture => {
+    // Update count in header
+    const countSpan = document.querySelector('.lecture-count');
+    if (countSpan && window.LECTURES) {
+        const count = window.LECTURES.filter(l => l.status === 'available').length;
+        countSpan.textContent = `${count} available`;
+    }
+
+    lectureList.innerHTML = window.LECTURES.map(lecture => {
         const isAvailable = lecture.status === 'available';
         const num = String(lecture.id).padStart(2, '0');
 
@@ -86,4 +93,10 @@ function renderLectures() {
     }).join('');
 }
 
+// Initial render
 renderLectures();
+
+// Listener for runtime list.txt loads
+window.addEventListener('lecturesloaded', () => {
+    renderLectures();
+});
