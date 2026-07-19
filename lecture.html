@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Chemistry</title>
+    <title>Lecture - Quantum Chemistry</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,27 +23,27 @@
         </div>
     </nav>
 
-    <main>
-        <section class="hero">
-            <div class="hero-container">
-                <div class="hero-badge">Lecture Series</div>
-                <h1 class="hero-title">Quantum<br>Chemistry</h1>
-                <p class="hero-subtitle">Video lectures and quizzes for mastering quantum chemistry concepts</p>
-            </div>
-        </section>
+    <main class="lecture-page">
+        <div class="lecture-container">
+            <a href="index.html" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back to Lectures
+            </a>
 
-        <section class="lectures">
-            <div class="lectures-container">
-                <div class="section-header">
-                    <h2>All Lectures</h2>
-                    <span class="lecture-count">2 available</span>
+            <div class="lecture-header" id="lecture-header">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="lecture-content">
+                <div class="video-section" id="video-section">
+                    <!-- Video embedded by JS -->
                 </div>
 
-                <div class="lecture-list" id="lecture-list">
-                    <!-- Lectures will be rendered by JS -->
+                <div class="quiz-section" id="quiz-section">
+                    <!-- Quiz embedded by JS -->
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>
@@ -53,6 +53,6 @@
     </footer>
 
     <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script src="lecture.js"></script>
 </body>
 </html>
