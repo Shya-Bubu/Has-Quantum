@@ -240,3 +240,23 @@ fetch('list.txt')
     .catch(err => {
         console.error("Could not load list.txt dynamically, falling back to static array:", err);
     });
+
+// ============================================================
+// LECTURE NOTES / ERRATA
+// Add notes per lecture to highlight corrections, tips, or info.
+// Each entry is keyed by lecture ID and contains an array of notes.
+// Types: "correction" (mistakes to fix), "info" (general notes), "tip" (helpful hints)
+// ============================================================
+window.LECTURE_NOTES = {
+    2: [
+        {
+            type: "correction",
+            message: "In this lecture, I mistakenly said that Φ (Phi) is the capital Greek letter of π (pi). That is incorrect — Φ (Phi) and Π (Pi) are two completely different Greek letters. The capital form of π is Π."
+        }
+    ]
+    // Add more notes like this:
+    // 3: [
+    //     { type: "info", message: "Revisit the derivation of Schrödinger's equation if needed." },
+    //     { type: "tip", message: "Pay extra attention to the boundary conditions section." }
+    // ]
+};

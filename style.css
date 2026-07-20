@@ -520,6 +520,127 @@ a {
     font-size: 1.05rem;
 }
 
+/* === Notes / Errata Section === */
+.notes-section {
+    margin-bottom: 28px;
+}
+
+.notes-card {
+    background: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.notes-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: rgba(255, 179, 0, 0.06);
+    border-bottom: 1px solid rgba(255, 179, 0, 0.12);
+    color: #b8860b;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+[data-theme="dark"] .notes-header {
+    background: rgba(255, 179, 0, 0.1);
+    border-bottom-color: rgba(255, 179, 0, 0.18);
+    color: #f0c040;
+}
+
+.notes-body {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.note-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: var(--radius-md);
+    border-left: 3px solid transparent;
+    transition: background 0.15s ease;
+}
+
+.note-icon {
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    line-height: 1.5;
+}
+
+.note-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.note-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 100px;
+    margin-bottom: 6px;
+}
+
+.note-message {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+/* Correction notes — amber/warning style */
+.note-correction {
+    background: rgba(255, 179, 0, 0.05);
+    border-left-color: #e6a800;
+}
+.note-correction .note-label {
+    background: rgba(255, 179, 0, 0.12);
+    color: #b8860b;
+}
+
+[data-theme="dark"] .note-correction {
+    background: rgba(255, 179, 0, 0.08);
+    border-left-color: #f0c040;
+}
+[data-theme="dark"] .note-correction .note-label {
+    background: rgba(255, 179, 0, 0.18);
+    color: #f0c040;
+}
+
+/* Info notes — blue style */
+.note-info {
+    background: rgba(0, 113, 227, 0.04);
+    border-left-color: var(--accent);
+}
+.note-info .note-label {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+/* Tip notes — green style */
+.note-tip {
+    background: rgba(52, 199, 89, 0.04);
+    border-left-color: var(--green);
+}
+.note-tip .note-label {
+    background: var(--green-bg);
+    color: #28a745;
+}
+
+[data-theme="dark"] .note-tip .note-label {
+    color: var(--green);
+}
+
 /* === Video Section === */
 .video-section {
     margin-bottom: 40px;
